@@ -1,0 +1,20 @@
+# Generated public folder
+/public/
+
+# Generated resources folder
+/resources/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+*.swp
+*.bak
+*~
+
+# NPM dependencies
+/node_modules/

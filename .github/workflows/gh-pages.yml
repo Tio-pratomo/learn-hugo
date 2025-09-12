@@ -1,0 +1,62 @@
+# Workflow untuk membangun dan men-deploy situs Hugo ke GitHub Pages
+name: Deploy Hugo site to Pages
+
+on:
+  # U/ jalankan saat ada push ke branch `main`
+  push:
+    branches:
+      - main
+  # Memungkinkan Anda menjalankan workflow ini secara manual dari tab Actions
+  workflow_dispatch:
+
+# Atur izin GITHUB_TOKEN untuk memungkinkan deployment ke GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Hanya izinkan satu deployment bersamaan, batalkan proses yang sedang berjalan
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Job untuk membangun situs
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Ambil juga submodule tema
+          fetch-depth: 0 # Ambil semua history untuk info .GitInfo Hugo
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest" # Gunakan versi Hugo terbaru
+          extended: true # Gunakan versi extended yang diperlukan banyak tema
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Hugo
+        run: hugo --minify # Bangun situs dan minify output
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload dari direktori 'public'
+          path: "./public"
+
+  # Job untuk men-deploy
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
