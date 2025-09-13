@@ -65,7 +65,7 @@ Daripada mengunduh file `.zip`, kita akan menggunakan perintah `git submodule`. 
 
 <!-- end list -->
 
-```bash
+```bash {title="bash"}
 git submodule add <URL_repositori_tema> themes/<nama-folder-tema>
 ```
 
@@ -75,7 +75,7 @@ git submodule add <URL_repositori_tema> themes/<nama-folder-tema>
 **Contoh:**
 Jika URL tema adalah `https://github.com/the-coder-01/hugo-vitae`, jalankan perintah berikut:
 
-```bash
+```bash {title="bash"}
 git submodule add https://github.com/the-coder-01/hugo-vitae themes/vitae
 ```
 
@@ -90,13 +90,13 @@ Setelah tema ditambahkan, Anda perlu mengaktifkannya melalui file konfigurasi ut
 
 <!-- end list -->
 
-```toml
+```toml {title="toml"}
 theme = "nama-folder-tema"
 ```
 
 **Contoh `config.toml`:**
 
-```toml
+```toml {title="toml"}
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
@@ -107,7 +107,7 @@ theme = 'vitae'
 
 Sekarang saatnya melihat hasilnya\! Buka terminal di direktori utama proyek Anda dan jalankan perintah:
 
-```bash
+```bash {title="bash"}
 hugo server
 ```
 
@@ -121,14 +121,75 @@ Salah satu keuntungan terbesar menggunakan Git submodule adalah kemudahannya dal
 
 Pastikan Anda berada di direktori utama proyek Hugo Anda, lalu jalankan perintah ini:
 
-```bash
+```bash {title="bash"}
 git submodule update --remote --merge
 ```
 
 Perintah ini akan memeriksa semua submodule di proyek Anda dan memperbarui semuanya ke versi terbaru. Jika Anda hanya ingin memperbarui satu tema, Anda bisa menentukannya:
 
-```bash
+```bash {title="bash"}
 git submodule update --remote themes/<nama-folder-tema>
 ```
 
 Git akan secara otomatis menarik semua perubahan baru dan memperbarui tema Anda. Ini jauh lebih efisien daripada mengunduh file `.zip` secara manual setiap kali ada pembaruan.
+
+## Menghapus Theme Pada Git Submodule
+
+Proses yang benar pada dasarnya adalah "memberi tahu" Git untuk menghapus catatan-catatan tersebut sebelum melakukan commit.
+
+Langkah 1: Batalkan Registrasi Submodule (`deinit`)
+
+Perintah ini memberitahu Git untuk menghapus submodule dari file konfigurasi lokal (.git/config) dan membersihkan statusnya.
+
+```bash {title="bash"}
+git submodule deinit -f path/ke/submodule
+```
+
+Contohnya :
+
+```bash {title="bash"}
+git submodule deinit -f themes/relearn
+```
+
+Langkah 2: Hapus Submodule dari Proyek (`rm`)
+
+Perintah ini melakukan dua hal: menghapus direktori submodule dari proyek dan (yang paling penting) menghapus baris submodule dari file .gitmodules.
+Perubahan ini langsung di-stage (disiapkan untuk commit).
+
+```bash {title="bash"}
+git rm path/ke/submodule
+```
+
+Contohnya :
+
+```bash {title="bash"}
+git rm themes/relearn
+```
+
+Langkah 3: Commit Perubahan
+
+Setelah menjalankan dua perintah di atas, penghapusan submodule tersebut kini menjadi sebuah perubahan yang harus Anda commit, sama seperti perubahan
+kode lainnya.
+
+```bash {title="bash"}
+git commit -m "feat: Menghapus submodule [nama submodule]"
+```
+
+Contohnya :
+
+```bash {title="bash"}
+git commit -m "refactor: Menghapus tema relearn sebagai submodule"
+```
+
+---
+
+Jadi, urutan lengkapnya adalah:
+
+1. Batalkan registrasi dan hapus dari pelacakan Git
+
+2. Hapus submodule dari proyek
+
+3. Commit perubahan
+
+Dengan mengikuti langkah-langkah ini, submodule akan terhapus dengan bersih tanpa meninggalkan sisa konfigurasi yang bisa menyebabkan masalah di
+kemudian hari.
