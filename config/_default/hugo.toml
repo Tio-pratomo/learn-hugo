@@ -2,6 +2,16 @@ languageCode = 'id'
 title = 'Catatan hugo'
 theme = 'hugo-theme-relearn'
 
+[goldmark]
+[goldmark.renderer]
+unsafe = true
+
+[goldmark.parser]
+autoHeadingID = true
+autoHeadingIDType = "github"
+wrap = 100
+
+
 [markup]
 [markup.goldmark]
 [markup.goldmark.renderer]
