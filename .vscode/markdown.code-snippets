@@ -1,0 +1,10 @@
+{
+  "Bold Shortcode": {
+    "scope": "markdown",
+    "prefix": "boldsc",
+    "body": [
+      "{{< bold >}}${TM_SELECTED_TEXT}$1{{< /bold >}}"
+    ],
+    "description": "Inserts the 'bold' shortcode, wrapping selected text if any."
+  }
+}

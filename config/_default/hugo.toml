@@ -30,5 +30,5 @@ themeVariant = [
     'zen-light',
     'zen-dark',
 ] # bisa juga "relearn-dark", "zen-light", "zen-dark", dll
-# customCSS = ["css/custom.css"] # path relatif ke folder /static/
+customCSS = ["css/custom.css"]
 collapsibleMenu = true
