@@ -1,0 +1,5 @@
+
+.custom-bold {
+  font-weight: bold;
+  color: var(--PRIMARY-color);
+}
