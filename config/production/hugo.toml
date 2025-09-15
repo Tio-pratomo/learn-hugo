@@ -1,1 +1,6 @@
 baseURL = 'https://Tio-pratomo.github.io/learn-hugo/'
+
+[markup]
+[markup.goldmark.renderer]
+unsafe = true
+
