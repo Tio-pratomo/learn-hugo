@@ -61,7 +61,7 @@ Sekarang, buka browser Anda di `http://localhost:1313/` dan lihat halaman yang s
 
 {{< tabs >}}
 {{% tab title="root" %}}
-{{< figure src="/content-images/bagian-1/gambar-1-sesi5.jpg" title="Tampilan di root" >}}
+{{< img src="content-images/bagian-1/gambar-1-sesi5.jpg" alt="Tampilan di root" >}}
 {{% /tab %}}
 
 {{% tab title="dir1/b.md" %}}
