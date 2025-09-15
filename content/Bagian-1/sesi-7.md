@@ -60,7 +60,7 @@ Misalnya, Anda ingin setiap artikel baru memiliki `draft` yang diatur ke `false`
 
 Caranya, buka file `archetypes/default.md` dan ubah isinya menjadi seperti ini:
 
-```markdown
+```markdown {wrap="true" hl_lines="5"}
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: "{{ .Date }}"
@@ -119,3 +119,4 @@ Ketika Anda menjalankan perintah `hugo new`, Hugo akan melakukan pemeriksaan ini
 2.  **Gunakan Default**: Jika Hugo tidak menemukan file archetype yang sesuai dengan nama direktori (misalnya, `archetypes/posts.md` tidak ada), maka Hugo akan kembali menggunakan file `archetypes/default.md` sebagai template.
 
 Dengan Archetypes, Anda bisa memastikan setiap file konten baru memiliki struktur dan metadata yang konsisten, menghemat waktu, dan menghindari kesalahan. Ini adalah fitur yang sangat kuat untuk mengelola situs web besar dengan banyak jenis konten.
+
