@@ -113,7 +113,7 @@ Selain variabel default seperti `title`, `date`, dan `draft`, Anda juga bisa mem
 
 Misalnya, Anda bisa menambahkan variabel `author` untuk menunjukkan siapa penulis artikel.
 
-```markdown
+```markdown {hl_lines="4"}
 ---
 title: "Artikel Tentang Hugo"
 date: 2025-09-12T15:43:07+07:00
@@ -128,3 +128,4 @@ Setelah Anda menambahkan variabel `author` di Front Matter, tema atau template H
 Anda bisa membuat variabel kustom sebanyak yang Anda butuhkan, seperti `tags`, `categories`, atau bahkan `language`. Seiring Anda menjadi lebih mahir dengan Hugo, Anda akan belajar cara mengakses dan menampilkan variabel-variabel ini di template Anda.
 
 Front Matter adalah alat yang sangat ampuh untuk mengelola dan mengatur konten di situs Hugo Anda. Dengan menggunakannya, Anda bisa membuat situs web yang lebih terstruktur dan informatif.
+

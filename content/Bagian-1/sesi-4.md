@@ -19,14 +19,21 @@ Di halaman GitHub, cari dan salin URL repositori. Ini adalah URL yang akan kita 
 
 Ada tiga cara utama untuk menginstal tema, masing-masing dengan kelebihan dan kekurangannya.
 
-### a. Metode Git Submodule (Paling Direkomendasikan)
+### a. Metode Git Submodule (Paling Direkomendasikan) {#metode-submodule}
 
 Ini adalah metode terbaik dan paling profesional untuk mengelola tema. Ia mengintegrasikan repositori tema sebagai sub-proyek di dalam proyek utama Anda.
 
-- **Cara Instalasi** : Buka terminal di direktori utama proyek Anda, lalu jalankan `git submodule add <URL_repositori_tema> themes/<nama-folder-tema>`.
+- **Cara Instalasi** : Buka terminal di direktori utama proyek Anda, lalu jalankan :
+
+  ```bash {title="bash" wrap="true"}
+  git submodule add <URL_repositori_tema> themes/<nama-folder-tema>
+  ```
+
 - **Kelebihan** :
+
   - **Mudah Diperbarui** : Anda bisa memperbarui semua tema (submodule) sekaligus hanya dengan satu perintah dari direktori utama proyek Anda: `git submodule update --remote --merge`.
   - **Versi Terkelola** : Proyek utama Anda mencatat versi (commit) spesifik dari tema yang Anda gunakan. Ini sangat penting untuk konsistensi dan kolaborasi tim.
+
 - **Kekurangan**: Membutuhkan pemahaman dasar tentang Git.
 
 ---
@@ -193,3 +200,50 @@ Jadi, urutan lengkapnya adalah:
 
 Dengan mengikuti langkah-langkah ini, submodule akan terhapus dengan bersih tanpa meninggalkan sisa konfigurasi yang bisa menyebabkan masalah di
 kemudian hari.
+
+## Praktek
+
+Anda perlu praktek untuk menyamakan tema yang digunakan untuk sesi kedepannya. Ini hanya mempermudah saja agar perjalanan pada Bagian 1 lancar. Kecuali, jika anda sudah lancar tentu saja bagian ini bisa dilewati saja. Kita akan menginstall tema {{< bold >}}relearn{{< /bold >}}. Menurut saya, ini mudah digunakan di antara semua tema yang ada di Hugo.
+
+Untuk instalasi, menggunakan git submodule. Anda dapat melihatnya disini [Lihat metode submodule](#metode-submodule).
+
+Pastikan anda sudah melakukan inisialisasi git terlebih dahulu :
+
+```bash {title="bash"}
+git init
+```
+
+Buat {{< bold >}}.gitignore{{< /bold >}} di root project anda. Setelah itu, isikan file tersebut dengan kode di bawah ini :
+
+```bash {title=".gitignore" wrap="true"}
+# Generated public folder
+/public/
+
+# Generated resources folder
+/resources/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+*.swp
+*.bak
+*~
+
+# NPM dependencies
+/node_modules/
+
+```
+
+Kemudian, ketik ini di terminal :
+
+```bash
+git submodule add --depth 1 https://github.com/McShelby/hugo-theme-relearn.git themes/hugo-theme-relearn
+```
+
+Setelah itu, kita bisa explorasi lebih jauh di sesi selanjutnya.
+

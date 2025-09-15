@@ -59,6 +59,21 @@ hugo server -D
 
 Sekarang, buka browser Anda di `http://localhost:1313/` dan lihat halaman yang sudah Anda buat. Perhatikan bahwa URL akan mencerminkan struktur folder Anda. Misalnya, `content/dir1/b.md` akan menjadi `http://localhost:1313/dir1/b/`.
 
+{{< tabs >}}
+{{% tab title="root" %}}
+![gambar-1](/content-images/bagian-1/gambar-1-sesi5.jpg)
+{{% /tab %}}
+
+{{% tab title="dir1/b.md" %}}
+![gambar-1](/content-images/bagian-1/gambar-2-sesi5.jpg)
+
+{{% /tab %}}
+
+{{% tab title="a.md" %}}
+![gambar-1](/content-images/bagian-1/gambar-3-sesi5.jpg)
+{{% /tab %}}
+{{< /tabs >}}
+
 ## Memahami Dua Jenis Halaman di Hugo
 
 Hugo membagi semua konten menjadi dua jenis halaman utama:
@@ -106,3 +121,4 @@ Dengan cara ini, Anda bisa memberikan konten unik pada halaman daftar, bukan han
 Setiap tema Hugo memiliki cara sendiri dalam menampilkan konten. Beberapa tema mungkin memiliki struktur folder yang spesifik (misalnya, semua postingan blog harus berada di folder `content/posts/`). Selalu periksa dokumentasi tema Anda untuk panduan yang lebih terperinci.
 
 Namun, prinsip dasar tentang **halaman tunggal**, **halaman daftar**, dan penggunaan **`_index.md`** tetap berlaku di semua tema.
+
