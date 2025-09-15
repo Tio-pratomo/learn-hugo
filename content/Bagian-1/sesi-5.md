@@ -61,16 +61,15 @@ Sekarang, buka browser Anda di `http://localhost:1313/` dan lihat halaman yang s
 
 {{< tabs >}}
 {{% tab title="root" %}}
-![gambar-1](/content-images/bagian-1/gambar-1-sesi5.jpg)
+{{< figure src="/content-images/bagian-1/gambar-1-sesi5.jpg" title="Tampilan di root" >}}
 {{% /tab %}}
 
 {{% tab title="dir1/b.md" %}}
-![gambar-1](/content-images/bagian-1/gambar-2-sesi5.jpg)
-
+{{< figure src="/content-images/bagian-1/gambar-2-sesi5.jpg" title="Tampilan di dir1/b.md" >}}
 {{% /tab %}}
 
-{{% tab title="a.md" %}}
-![gambar-1](/content-images/bagian-1/gambar-3-sesi5.jpg)
+{{% tab title="base_url/a.md" %}}
+{{< figure src="/content-images/bagian-1/gambar-3-sesi5.jpg" title="Tampilan di base_url/a.md" >}}
 {{% /tab %}}
 {{< /tabs >}}
 
