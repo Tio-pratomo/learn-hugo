@@ -1,16 +1,29 @@
 ---
-title: "Selamat Datang di Catatan Hugo Saya"
+title: "Selamat Datang di Catatan Belajar Hugo"
 draft: false
 ---
 
-Selamat datang di pusat dokumentasi pribadi saya untuk belajar **Hugo**!
+Selamat datang di catatan pribadi saya dalam perjalanan mempelajari **Hugo**!
 
-Situs ini berisi kumpulan catatan, cuplikan kode, dan pemahaman yang saya dapatkan saat menjelajahi Hugo, generator situs statis yang luar biasa cepat. Tujuan utamanya adalah untuk memperkuat pemahaman saya sendiri dan mungkin bisa membantu orang lain yang juga sedang belajar.
+Situs ini merupakan kumpulan catatan, cuplikan kode, dan wawasan yang saya dapatkan saat menjelajahi Hugo, sebuah generator situs statis yang sangat cepat. Tujuan utama saya membuat situs ini adalah untuk memperkuat pemahaman pribadi, dan semoga bisa bermanfaat bagi siapa pun yang juga sedang belajar Hugo.
 
-## Topik Awal
+## Topik Pembahasan Awal
 
-Berikut adalah beberapa hal pertama yang saya pelajari dan catat:
+Berikut adalah beberapa topik awal yang saya pelajari dan dokumentasikan di sini:
 
-- **Instalasi Hugo**: Bagaimana cara menginstall Hugo di berbagai sistem operasi.
-- **Konfigurasi Situs**: Memahami file `hugo.toml` dan cara mengatur parameter dasar.
-- **Struktur Konten**: Cara kerja direktori `content` dan bagaimana Hugo membuat halaman dari file Markdown.
+- **Instalasi Hugo**: Panduan untuk menginstal Hugo di berbagai sistem operasi.
+
+- **Konfigurasi Situs**: Memahami file `hugo.toml` dan cara melakukan pengaturan dasar.
+
+- **Struktur Konten**: Menjelaskan cara kerja direktori `content` dan bagaimana Hugo membuat halaman dari file Markdown.
+
+## Struktur Pembahasan
+
+Catatan ini dibagi menjadi beberapa bagian untuk mempermudah navigasi:
+
+- **Bagian 1**: Pengenalan fundamental dan konsep inti Hugo.
+
+- **Bagian 2**: Menjelajahi fitur yang lebih kompleks.
+
+- **Bagian 3**: Membahas optimasi dan praktik.
+
