@@ -39,6 +39,48 @@ Di contoh di atas, kita punya tiga pasangan kunci-nilai:
 
 - **draft** : Variabel ini bernilai `true` (benar). Ketika `draft` diatur ke `true`, Hugo tidak akan menampilkan artikel ini di situs web yang sudah dipublikasikan. Ini sangat berguna jika Anda sedang menulis draf dan belum siap menampilkannya ke publik.
 
+## Daftar Lengkap Isi Front Matter
+
+Isi front matter terbagi dua: variabel bawaan Hugo yang punya fungsi khusus, dan variabel buatan Anda sendiri untuk keperluan kustom.
+
+Ini adalah variabel yang dikenali Hugo dan memengaruhi cara situs Anda dibangun.
+
+- title (Teks): Judul konten.
+
+- date (Tanggal): Tanggal publikasi utama, digunakan untuk mengurutkan postingan.
+
+- draft (Logika): Jika true, halaman tidak akan muncul di situs final kecuali Anda menggunakan perintah hugo --buildDrafts.
+
+- publishDate (Tanggal): Jika diatur ke masa depan, konten tidak akan terbit sampai tanggal tersebut tiba.
+- lastmod (Tanggal): Tanggal terakhir konten dimodifikasi.
+
+- expiryDate (Tanggal): Tanggal konten akan "kedaluwarsa" dan tidak ditampilkan lagi.
+
+- weight (Angka): Untuk mengurutkan halaman secara manual. Halaman dengan weight lebih kecil (misal: 1) akan muncul lebih dulu daripada yang lebih
+  besar (misal: 2).
+- description (Teks): Deskripsi singkat konten, sering dipakai untuk SEO (meta description).
+
+- summary (Teks): Ringkasan konten yang bisa Anda tampilkan di halaman daftar postingan.
+
+- type (Teks): Secara otomatis diatur berdasarkan nama folder (misal: posts), tapi bisa diubah manual untuk menggunakan layout yang berbeda.
+
+- layout (Teks): Memaksa Hugo menggunakan file layout tertentu untuk halaman ini.
+
+- slug (Teks): Mengganti bagian terakhir dari URL halaman. Contoh: slug = "panduan-hugo-2025".
+
+- url (Teks): Mengganti keseluruhan URL halaman.
+
+- aliases (Daftar Teks): Daftar URL lama yang akan dialihkan (redirect) ke halaman ini. Berguna jika Anda mengubah URL postingan lama. Contoh: aliases
+  = ["/posts/artikel-lama/", "/2024/01/artikel-lama.html"].
+
+- Taksonomi (untuk mengelompokkan):
+
+  - categories (Daftar Teks): Daftar kategori.
+
+  - tags (Daftar Teks): Daftar tag.
+
+  - Anda juga bisa membuat taksonomi sendiri, misal series.
+
 ## Tiga Bahasa untuk Menulis Front Matter
 
 Hugo mendukung tiga bahasa berbeda untuk menulis Front Matter. Anda bisa memilih salah satu yang paling Anda sukai atau yang paling cocok dengan proyek Anda.
@@ -126,6 +168,34 @@ Ini adalah konten artikelnya...
 Setelah Anda menambahkan variabel `author` di Front Matter, tema atau template Hugo Anda dapat mengambil nilai `"Mike"` dan menampilkannya di halaman artikel. Jika ada file lain yang tidak memiliki variabel `author`, maka informasi penulis tidak akan ditampilkan.
 
 Anda bisa membuat variabel kustom sebanyak yang Anda butuhkan, seperti `tags`, `categories`, atau bahkan `language`. Seiring Anda menjadi lebih mahir dengan Hugo, Anda akan belajar cara mengakses dan menampilkan variabel-variabel ini di template Anda.
+
+{{< bold >}}Contoh lain variabel custom : {{< /bold >}}
+
+```{title="markdown" wrap="true" hl_lines="5"}
++++
+title = "Postingan Keren"
+date = "2025-09-18"
+author_twitter = "@namatwitter"
+thumbnail = "/images/gambar-postingan.jpg"
+is_featured = true
++++
+```
+
+Kemudian, cara menggunakannya di file layout (`.html`):
+
+Anda bisa memanggil variabel custom dengan `.Params.namaVariabel`.
+
+```html {title="html" wrap="true" hl_lines="3-5"}
+<h1>{{ .Title }}</h1>
+
+{{ if .Params.is_featured }}
+<div class="featured-badge">Postingan Unggulan!</div>
+{{ end }}
+
+<img src="{{ .Params.thumbnail }}" alt="Thumbnail" />
+
+<p>Ditulis oleh: {{ .Params.author_twitter }}</p>
+```
 
 Front Matter adalah alat yang sangat ampuh untuk mengelola dan mengatur konten di situs Hugo Anda. Dengan menggunakannya, Anda bisa membuat situs web yang lebih terstruktur dan informatif.
 
