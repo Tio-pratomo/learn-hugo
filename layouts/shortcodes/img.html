@@ -1,10 +1,10 @@
+<!-- prettier-ignore -->
 {{ $src := .Get "src" }}
 {{ $alt := .Get "alt" | default "" }}
 {{ $class := .Get "class" | default "" }}
-
 {{ with resources.Get $src }}
-  <img src="{{ .RelPermalink }}" alt="{{ $alt }}" class="{{ $class }}">
+  <img src="{{ .RelPermalink }}" alt="{{ $alt }}" class="{{ $class }}" />
 {{ else }}
   <!-- Fallback for images not found in assets, though they should be now -->
-  <img src="{{ $src | relURL }}" alt="{{ $alt }}" class="{{ $class }}">
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}" class="{{ $class }}" />
 {{ end }}
