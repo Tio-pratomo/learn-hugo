@@ -1,6 +1,6 @@
 # Default config
 tabWidth: 4
-endOfLine: crlf
+endOfLine: lf
 singleQuote: true
 printWidth: 100000
 trailingComma: none
@@ -8,12 +8,16 @@ bracketSameLine: true
 quoteProps: consistent
 experimentalTernaries: true
 
+plugins: ["prettier-plugin-go-template"]
+goTemplateBracketSpacing: true
+
 # Overrided config
 overrides:
   - files: ["*.md", "*.json", "*.yaml"]
     options:
       tabWidth: 2
       singleQuote: false
-  - files: ["*.scss"]
+  - files: ["*.html"]
     options:
-      singleQuote: false
+      parser: "go-template"
+      tabWidth: 2
