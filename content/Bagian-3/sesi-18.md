@@ -133,10 +133,13 @@ Untuk menggabungkan multiple conditions:
 ## Kesalahan Umum dan Solusi
 
 **Masalah**: Conditional tidak bekerja seperti yang diharapkan
-**Solusi**: Pastikan:
+**Solusi**:
+Pastikan:
 
 - Semua parentheses tertutup dengan benar
+
 - Tidak ada typo dalam nama variabel
+
 - Menggunakan operator yang tepat untuk tipe data yang dibandingkan
 
 ## Latihan Praktis
@@ -148,4 +151,3 @@ Coba implementasikan conditional statements untuk:
 2. Mengubah layout berdasarkan section content
 
 3. Menampilkan atau menyembunyikan elemen berdasarkan parameter front matter
-
